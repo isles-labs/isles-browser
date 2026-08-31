@@ -1,0 +1,66 @@
+.header {
+  height: 54px;
+  display: flex;
+  align-items: center;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  margin: 14px 18px 0;
+  padding: 0 10px 0 18px;
+  border: 1px solid var(--cp-border);
+  border-radius: var(--cp-radius);
+  background: var(--cp-top-bg) !important;
+  box-shadow: var(--cp-shadow);
+  backdrop-filter: blur(18px);
+}
+
+.header-left {
+  display: flex;
+  min-width: 260px;
+  align-items: center;
+  gap: 12px;
+  min-height: 0;
+}
+
+.draggable-bar {
+  flex: 1;
+  height: 54px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  margin-inline-start: auto;
+}
+
+.avatar {
+  border: 1px solid var(--cp-border);
+  box-shadow: var(--cp-shadow);
+  cursor: pointer;
+}
+
+.avatar img {
+  object-fit: cover;
+}
+
+.control-btn {
+  margin-left: 14px;
+}
+
+.control-btn .ant-space {
+  gap: 6px !important;
+}
+
+.control-btn .ant-btn {
+  width: 32px;
+  height: 32px;
+  color: var(--cp-muted);
+  border-color: var(--cp-border);
+  background: var(--cp-control-bg);
+  box-shadow: none;
+}
+
+.control-btn .ant-btn:hover {
+  color: var(--cp-active-text) !important;
+  border-color: var(--cp-active-line) !important;
+  background: var(--cp-active-bg) !important;
+}

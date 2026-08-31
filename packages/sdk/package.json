@@ -1,0 +1,25 @@
+{
+  "name": "@liwenguan/cloak-power-humanize-sdk",
+  "version": "0.1.1",
+  "description": "Client SDK for connecting automation projects to cloak-power-browser profiles with wrapper-style humanize behavior.",
+  "type": "module",
+  "main": "./index.mjs",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
+  "files": [
+    "index.mjs",
+    "index.d.ts",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "sideEffects": false
+}

@@ -1,0 +1,14 @@
+.proxy-detail-card {
+  height: calc(100% - 86px);
+  /* padding: 24px; */
+}
+
+.proxy-import-tip {
+  color: var(--cp-text);
+  background: var(--cp-active-bg) !important;
+  border-color: var(--cp-active-line) !important;
+}
+
+.proxy-import-tip .ant-typography {
+  color: var(--cp-text);
+}

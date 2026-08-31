@@ -1,0 +1,35 @@
+name: Tests
+on: [ workflow_call ]
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: 'bash'
+
+jobs:
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ windows-2022 ]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'npm'
+      - run: npm ci --foreground-scripts
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 1
+          PUPPETEER_SKIP_DOWNLOAD: 'true'
+      - run: npm run test:main --if-present
+      - run: npm run test:preload --if-present
+      - run: npm run test:renderer --if-present
+
+      # Electron E2E is intentionally isolated from this gate: it needs a
+      # stable display/runtime environment and is not currently deterministic
+      # on the hosted runners. Run it separately when that environment exists.

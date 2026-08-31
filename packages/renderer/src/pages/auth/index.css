@@ -1,0 +1,173 @@
+.auth-shell {
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(360px, 1.1fr);
+  background: var(--cp-app-bg);
+}
+
+.auth-brand {
+  padding: 56px;
+  color: var(--cp-text);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid var(--cp-border);
+  background: var(--cp-side-bg);
+}
+
+.auth-brand-title {
+  margin: 0;
+  color: var(--cp-text);
+  font-size: 36px;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.auth-brand-copy {
+  margin-top: 18px;
+  max-width: 420px;
+  color: var(--cp-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.auth-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+}
+
+.auth-card {
+  width: min(440px, 100%);
+  background: var(--cp-panel-bg);
+  border: 1px solid var(--cp-border);
+  border-radius: var(--cp-radius);
+  padding: 32px;
+  box-shadow: var(--cp-heavy-shadow);
+  backdrop-filter: blur(16px);
+}
+
+.auth-card h1 {
+  margin: 0 0 8px;
+  color: var(--cp-text);
+  font-size: 25px;
+  font-weight: 750;
+  letter-spacing: 0;
+}
+
+.auth-subtitle {
+  margin: 0 0 24px;
+  color: var(--cp-muted);
+}
+
+.auth-card .ant-form-item-label > label {
+  color: var(--cp-table-text);
+  font-weight: 650;
+}
+
+.auth-card .ant-btn-primary {
+  height: 40px;
+}
+
+.team-select-panel {
+  align-items: flex-start;
+  overflow-y: auto;
+}
+
+.team-select-panel .auth-card {
+  width: min(760px, 100%);
+  margin: auto 0;
+}
+
+.team-select-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.team-select-header .auth-subtitle {
+  margin-bottom: 0;
+}
+
+.team-list {
+  overflow: hidden;
+  border: 1px solid var(--cp-border);
+  border-radius: var(--cp-radius);
+  background: var(--cp-panel-bg);
+}
+
+.team-list .ant-list-empty-text {
+  padding: 42px 16px;
+  color: var(--cp-muted);
+}
+
+.team-list-item {
+  padding: 16px 18px !important;
+  border-block-end: 1px solid var(--cp-row-border) !important;
+  transition:
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.team-list-item:last-child {
+  border-block-end: 0 !important;
+}
+
+.team-list-item.current {
+  background: var(--cp-active-bg);
+  box-shadow: inset 3px 0 0 var(--cp-active-line);
+}
+
+.team-name {
+  color: var(--cp-text);
+  font-size: 15px;
+  font-weight: 760;
+}
+
+.team-meta {
+  width: 100%;
+}
+
+.team-meta .ant-typography {
+  overflow-wrap: anywhere;
+}
+
+.team-section {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--cp-row-border);
+}
+
+.team-request-list {
+  margin-top: 8px;
+}
+
+.team-request-list .ant-list-item {
+  padding-inline: 0;
+}
+
+.team-back-btn {
+  margin-top: 18px;
+}
+
+@media (max-width: 860px) {
+  .auth-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-brand {
+    padding: 32px;
+  }
+
+  .auth-panel {
+    padding: 24px;
+  }
+
+  .team-select-header {
+    flex-direction: column;
+  }
+}

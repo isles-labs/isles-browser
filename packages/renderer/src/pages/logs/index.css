@@ -1,0 +1,68 @@
+.log-container {
+  height: calc(100% - 64px);
+  overflow: auto;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.log-aside {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 18px;
+  color: #d7f3ff;
+  border: 1px solid rgba(125, 211, 252, 0.18);
+  border-radius: var(--cp-radius);
+  background-color: #052f4a;
+  font-family: "Fira Code", "SFMono-Regular", Consolas, monospace;
+}
+
+.log-window-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex: 0 0 auto;
+  padding-bottom: 12px;
+  color: rgba(215, 243, 255, 0.68);
+  font-size: 12px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.log-window-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.log-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 999px;
+}
+
+.log-dot.error {
+  background: #ef4444;
+}
+
+.log-dot.warn {
+  background: #f59e0b;
+}
+
+.log-dot.info {
+  background: #22c55e;
+}
+
+.log-output {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 0;
+  overflow: visible;
+  color: #d7f3ff;
+  font-size: 12px;
+  line-height: 1.62;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  user-select: text;
+  -webkit-user-select: text;
+}

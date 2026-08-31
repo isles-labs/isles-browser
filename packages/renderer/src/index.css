@@ -1,0 +1,554 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cp-text: #0f172a;
+  --cp-table-text: #334155;
+  --cp-muted: #64748b;
+  --cp-app-bg: #f5f9fc;
+  --cp-top-bg: rgba(255, 255, 255, 0.9);
+  --cp-side-bg: rgba(255, 255, 255, 0.72);
+  --cp-content-bg: rgba(245, 249, 252, 0.76);
+  --cp-panel-bg: #ffffff;
+  --cp-control-bg: #f8fafc;
+  --cp-border: #dbe7ef;
+  --cp-row-border: #edf2f7;
+  --cp-row-alt: #fbfdff;
+  --cp-row-hover: #f8fcff;
+  --cp-thead-bg: #f1f8fc;
+  --cp-primary: #0369a1;
+  --cp-primary-hover: #075985;
+  --cp-primary-text: #ffffff;
+  --cp-accent: #0ea5e9;
+  --cp-success: #22c55e;
+  --cp-active-bg: #e0f2fe;
+  --cp-active-text: #0369a1;
+  --cp-active-line: #0ea5e9;
+  --cp-hover-bg: rgba(14, 165, 233, 0.08);
+  --cp-nav-text: #475569;
+  --cp-icon: #64748b;
+  --cp-tag-bg: #e0f2fe;
+  --cp-tag-text: #075985;
+  --cp-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  --cp-heavy-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+  --cp-radius: 8px;
+  --cp-control-radius: 8px;
+  --cp-header-height: 60px;
+}
+
+.cp-theme-a.cp-mode-dark {
+  --cp-text: #e6f1fb;
+  --cp-table-text: #d8e5f2;
+  --cp-muted: #94a3b8;
+  --cp-app-bg: #07111f;
+  --cp-top-bg: #0b1626;
+  --cp-side-bg: #081827;
+  --cp-content-bg: #07111f;
+  --cp-panel-bg: #0d1c2e;
+  --cp-control-bg: #101f31;
+  --cp-border: rgba(125, 211, 252, 0.16);
+  --cp-row-border: rgba(125, 211, 252, 0.1);
+  --cp-row-alt: rgba(255, 255, 255, 0.018);
+  --cp-row-hover: rgba(125, 211, 252, 0.08);
+  --cp-thead-bg: #102033;
+  --cp-primary: #7dd3fc;
+  --cp-primary-hover: #bae6fd;
+  --cp-primary-text: #06111f;
+  --cp-accent: #7dd3fc;
+  --cp-success: #22c55e;
+  --cp-active-bg: rgba(14, 165, 233, 0.16);
+  --cp-active-text: #e6f1fb;
+  --cp-active-line: #22c55e;
+  --cp-hover-bg: rgba(14, 165, 233, 0.1);
+  --cp-nav-text: #aac3d8;
+  --cp-icon: #aac3d8;
+  --cp-tag-bg: rgba(34, 197, 94, 0.14);
+  --cp-tag-text: #bbf7d0;
+  --cp-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  --cp-heavy-shadow: 0 28px 80px rgba(0, 0, 0, 0.36);
+}
+
+.cp-theme-b.cp-mode-light {
+  --cp-text: #172033;
+  --cp-table-text: #334155;
+  --cp-muted: #6b7280;
+  --cp-app-bg: #f6f4ef;
+  --cp-top-bg: #fffdf8;
+  --cp-side-bg: #fffaf1;
+  --cp-content-bg: rgba(246, 244, 239, 0.78);
+  --cp-panel-bg: #fffdf8;
+  --cp-control-bg: #ffffff;
+  --cp-border: #e5dccb;
+  --cp-row-border: #eee6d8;
+  --cp-row-alt: #fbf8f1;
+  --cp-row-hover: #f8f1e4;
+  --cp-thead-bg: #f6efe2;
+  --cp-primary: #1f2937;
+  --cp-primary-hover: #111827;
+  --cp-primary-text: #ffffff;
+  --cp-accent: #0f766e;
+  --cp-success: #16a34a;
+  --cp-active-bg: #e7f5ef;
+  --cp-active-text: #0f766e;
+  --cp-active-line: #0f766e;
+  --cp-hover-bg: rgba(15, 118, 110, 0.08);
+  --cp-nav-text: #5b6472;
+  --cp-icon: #6b7280;
+  --cp-tag-bg: #e7f5ef;
+  --cp-tag-text: #0f766e;
+  --cp-shadow: 0 16px 36px rgba(48, 38, 21, 0.08);
+  --cp-heavy-shadow: 0 24px 70px rgba(48, 38, 21, 0.12);
+  --cp-radius: 8px;
+  --cp-control-radius: 7px;
+}
+
+.cp-theme-b.cp-mode-dark {
+  --cp-text: #f4efe6;
+  --cp-table-text: #e6dccb;
+  --cp-muted: #b4a995;
+  --cp-app-bg: #15120d;
+  --cp-top-bg: #1b1711;
+  --cp-side-bg: #19150f;
+  --cp-content-bg: #15120d;
+  --cp-panel-bg: #1f1a13;
+  --cp-control-bg: #17130e;
+  --cp-border: #3a3022;
+  --cp-row-border: #332a1f;
+  --cp-row-alt: rgba(255, 255, 255, 0.018);
+  --cp-row-hover: rgba(214, 180, 106, 0.08);
+  --cp-thead-bg: #17130e;
+  --cp-primary: #d6b46a;
+  --cp-primary-hover: #f4d796;
+  --cp-primary-text: #17130e;
+  --cp-accent: #2dd4bf;
+  --cp-success: #22c55e;
+  --cp-active-bg: #2a2418;
+  --cp-active-text: #f4d796;
+  --cp-active-line: #d6b46a;
+  --cp-hover-bg: rgba(214, 180, 106, 0.1);
+  --cp-nav-text: #cabda6;
+  --cp-icon: #cabda6;
+  --cp-tag-bg: rgba(214, 180, 106, 0.16);
+  --cp-tag-text: #f4d796;
+  --cp-shadow: 0 26px 70px rgba(0, 0, 0, 0.32);
+  --cp-heavy-shadow: 0 30px 88px rgba(0, 0, 0, 0.42);
+  --cp-radius: 8px;
+  --cp-control-radius: 7px;
+}
+
+.cp-theme-c.cp-mode-light {
+  --cp-text: #111827;
+  --cp-table-text: #374151;
+  --cp-muted: #6b7280;
+  --cp-app-bg: #f4f6f8;
+  --cp-top-bg: #ffffff;
+  --cp-side-bg: #ffffff;
+  --cp-content-bg: #f4f6f8;
+  --cp-panel-bg: #ffffff;
+  --cp-control-bg: #ffffff;
+  --cp-border: #e5e7eb;
+  --cp-row-border: #eeeeee;
+  --cp-row-alt: #fafafa;
+  --cp-row-hover: #f7f7f8;
+  --cp-thead-bg: #fafafa;
+  --cp-primary: #111827;
+  --cp-primary-hover: #030712;
+  --cp-primary-text: #ffffff;
+  --cp-accent: #111827;
+  --cp-success: #16a34a;
+  --cp-active-bg: #f3f4f6;
+  --cp-active-text: #111827;
+  --cp-active-line: #111827;
+  --cp-hover-bg: #f3f4f6;
+  --cp-nav-text: #4b5563;
+  --cp-icon: #6b7280;
+  --cp-tag-bg: #f3f4f6;
+  --cp-tag-text: #374151;
+  --cp-shadow: none;
+  --cp-heavy-shadow: none;
+  --cp-radius: 6px;
+  --cp-control-radius: 6px;
+  --cp-header-height: 58px;
+}
+
+.cp-theme-c.cp-mode-dark {
+  --cp-text: #e5e7eb;
+  --cp-table-text: #d1d5db;
+  --cp-muted: #9ca3af;
+  --cp-app-bg: #101113;
+  --cp-top-bg: #151619;
+  --cp-side-bg: #151619;
+  --cp-content-bg: #101113;
+  --cp-panel-bg: #181a1e;
+  --cp-control-bg: #121316;
+  --cp-border: #2a2d33;
+  --cp-row-border: #272a30;
+  --cp-row-alt: #15171a;
+  --cp-row-hover: #202328;
+  --cp-thead-bg: #121316;
+  --cp-primary: #e5e7eb;
+  --cp-primary-hover: #f9fafb;
+  --cp-primary-text: #111827;
+  --cp-accent: #e5e7eb;
+  --cp-success: #22c55e;
+  --cp-active-bg: #23262c;
+  --cp-active-text: #f9fafb;
+  --cp-active-line: #e5e7eb;
+  --cp-hover-bg: #23262c;
+  --cp-nav-text: #c1c7d0;
+  --cp-icon: #c1c7d0;
+  --cp-tag-bg: #23262c;
+  --cp-tag-text: #e5e7eb;
+  --cp-shadow: none;
+  --cp-heavy-shadow: none;
+  --cp-radius: 6px;
+  --cp-control-radius: 6px;
+  --cp-header-height: 58px;
+}
+
+html {
+  /* padding: 8px; */
+  background-color: transparent;
+  border-radius: 12px;
+  user-select: none;
+  -webkit-user-select: none;
+  color: var(--cp-text);
+}
+
+body {
+  background: transparent;
+  border-radius: 12px;
+  font-family:
+    "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
+
+#app {
+  background: var(--cp-app-bg);
+  background-size: cover;
+  background-position: center;
+  /* -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
+  box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.1); */
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.app-shell {
+  color: var(--cp-text);
+  gap: 0;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--cp-active-bg) 34%, transparent), transparent 220px),
+    var(--cp-app-bg);
+}
+
+.workspace-layout {
+  min-width: 0;
+  background: transparent;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+  flex-direction: column;
+  padding: 12px 18px 14px;
+  background: transparent;
+  overflow: hidden;
+
+  /* min-width: 1200px; */
+  /* overflow-y: auto; */
+  /* min-height: 700px; */
+}
+
+.page-title {
+  margin: 0 !important;
+  color: var(--cp-text) !important;
+  font-size: 18px !important;
+  line-height: 1 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.page-kicker {
+  padding-top: 1px;
+  color: var(--cp-muted);
+  font-size: 11px;
+  font-weight: 760;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.page-kicker::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 16px;
+  margin-right: 12px;
+  vertical-align: -3px;
+  background: var(--cp-border);
+}
+
+.content-card {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: auto;
+  overflow: hidden;
+  background: var(--cp-panel-bg);
+  border: 1px solid var(--cp-border);
+  border-radius: var(--cp-radius);
+  box-shadow: var(--cp-shadow);
+}
+
+.content-card .ant-card-body {
+  padding: 0;
+  height: 100%;
+}
+
+.cloud-diagnostics-bar {
+  min-height: 44px;
+  margin-bottom: 12px;
+  padding: 8px 14px;
+  border: 1px solid var(--ant-color-border-secondary);
+  border-radius: 6px;
+  background: var(--ant-color-bg-container);
+}
+
+.cloud-conflict-list {
+  margin-top: 16px;
+}
+
+.cloud-conflict-item {
+  width: 100%;
+}
+
+.content-toolbar {
+  display: flex;
+  flex: 0 0 auto;
+  min-height: 48px;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: var(--cp-panel-bg);
+  border: 1px solid var(--cp-border);
+  border-radius: var(--cp-radius);
+  box-shadow: var(--cp-shadow);
+  backdrop-filter: blur(16px);
+}
+
+.content-toolbar * {
+  border-radius: var(--cp-control-radius) !important;
+}
+
+.content-toolbar-search {
+  width: 260px;
+  max-width: 260px;
+}
+
+.content-toolbar-btns {
+  display: flex;
+  margin-inline-start: auto;
+}
+
+.content-table {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  position: relative;
+  border-radius: var(--cp-radius);
+  height: 100%;
+  overflow: hidden;
+}
+
+.content-table .ant-spin-nested-loading {
+  height: 100%;
+}
+.content-table .ant-spin-nested-loading .ant-spin-container {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content-table .ant-table {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.content-table .ant-table-container {
+  height: 100%;
+}
+
+.content-table .ant-table-body {
+  max-height: calc(100vh - 262px) !important;
+}
+
+/* Keep the pager visible while reserving space for it inside the scroll area. */
+.content-table-paginated .ant-table-body {
+  padding-bottom: 64px !important;
+}
+
+.extensions-table .ant-table-thead > tr > th,
+.extensions-table .ant-table-tbody > tr > td {
+  vertical-align: middle;
+}
+
+.extensions-assign-modal .ant-modal-content {
+  color: var(--cp-text);
+  background: var(--cp-panel-bg);
+}
+
+.extensions-assign-modal .ant-modal-header,
+.extensions-assign-modal .ant-modal-body,
+.extensions-assign-modal .ant-modal-footer {
+  background: transparent;
+}
+
+.extensions-assign-modal .ant-modal-title,
+.extensions-assign-modal .ant-typography,
+.extensions-assign-modal .ant-checkbox-wrapper,
+.extensions-assign-modal .ant-select-selection-item {
+  color: var(--cp-text);
+}
+
+.extensions-assign-modal .text-slate-500,
+.extensions-assign-modal .ant-typography-secondary {
+  color: var(--cp-muted) !important;
+}
+
+.extensions-assign-panel {
+  border-color: var(--cp-border) !important;
+  background: var(--cp-panel-bg);
+}
+
+.extensions-window-option {
+  color: var(--cp-text);
+  border-color: transparent;
+  background: transparent;
+}
+
+.extensions-window-option:hover {
+  border-color: var(--cp-border);
+  background: var(--cp-hover-bg);
+}
+
+.extensions-window-option.selected {
+  border-color: var(--cp-active-line);
+  background: var(--cp-active-bg);
+}
+
+.extensions-selected-window {
+  color: var(--cp-active-text);
+  border-color: var(--cp-active-line);
+  background: var(--cp-active-bg);
+}
+
+.extensions-selected-window:hover {
+  color: var(--cp-active-text);
+  border-color: var(--cp-primary);
+  background: var(--cp-hover-bg);
+}
+
+.content-table .ant-table-pagination.ant-pagination {
+  position: absolute;
+  right: 12px;
+  bottom: 8px;
+  left: 12px;
+  z-index: 2;
+  flex: 0 0 auto;
+  margin: 0 !important;
+  padding-top: 8px;
+  border-top: 1px solid var(--cp-row-border);
+  background: var(--cp-panel-bg);
+}
+
+.content-footer {
+  position: absolute;
+  bottom: 20px;
+  background: var(--cp-panel-bg);
+  width: 100%;
+  left: 2px;
+  padding: 12px;
+  border-radius: var(--cp-radius);
+}
+
+.pagination-wrapper {
+  margin: 10px 10px 8px !important;
+}
+
+.h-full {
+  height: 100% !important;
+}
+
+/* 在CSS中 */
+.draggable {
+  -webkit-app-region: drag;
+}
+
+/* 标准 CSS 滚动条样式（Chrome 121+） - 基础样式 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--cp-muted) transparent;
+}
+
+/* Webkit 增强样式 - 支持圆角和 hover 效果 */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--cp-muted);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--cp-icon);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--cp-text);
+}
+
+.fullscreen-spin-wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s;
+}
+
+.fullscreen-spin-wrapper.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}

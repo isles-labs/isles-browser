@@ -1,0 +1,164 @@
+.sider {
+  margin: 16px 0 16px 16px;
+  overflow: hidden;
+  background: var(--cp-side-bg) !important;
+  border: 1px solid var(--cp-border);
+  border-radius: var(--cp-radius);
+  box-shadow: var(--cp-heavy-shadow);
+  backdrop-filter: blur(18px);
+}
+
+.sider .ant-layout-sider-children {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 16px 14px;
+  border-bottom: 1px solid var(--cp-row-border);
+}
+
+.nav-brand-mark {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--cp-border);
+  border-radius: var(--cp-control-radius);
+  background: transparent;
+  box-shadow: var(--cp-shadow);
+}
+
+.nav-brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.nav-brand-title {
+  color: var(--cp-text);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.nav-brand-subtitle {
+  margin-top: 2px;
+  color: var(--cp-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.nav-create {
+  padding: 14px 14px 10px;
+}
+
+.nav-create .ant-btn {
+  height: 40px;
+  font-weight: 720;
+}
+
+.nav-section-label {
+  padding: 6px 18px 8px;
+  color: var(--cp-muted);
+  font-size: 11px;
+  font-weight: 760;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.navigation {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 0 10px 14px;
+  overflow-y: auto;
+  background: transparent !important;
+}
+
+.navigation .ant-menu-item {
+  display: flex;
+  align-items: center;
+  height: 38px !important;
+  margin-inline: 0 !important;
+  margin-block: 4px !important;
+  color: var(--cp-nav-text);
+  font-size: 13px;
+  font-weight: 680;
+  letter-spacing: 0;
+  border-radius: var(--cp-control-radius);
+}
+
+.navigation .ant-menu-item .ant-menu-item-icon {
+  color: var(--cp-icon);
+  font-size: 18px;
+}
+
+.navigation .ant-menu-item-selected {
+  color: var(--cp-active-text) !important;
+  background: var(--cp-active-bg) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--cp-active-line) 36%, transparent);
+}
+
+.navigation .ant-menu-item-selected .ant-menu-item-icon {
+  color: var(--cp-active-text);
+}
+
+.navigation .ant-menu-item:hover {
+  color: var(--cp-active-text) !important;
+  background: var(--cp-hover-bg) !important;
+}
+
+.navigation .ant-menu-item-divider {
+  margin: 12px 6px !important;
+  border-color: var(--cp-border) !important;
+}
+
+.nav-membership {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 14px 14px;
+  padding: 13px;
+  border: 1px solid var(--cp-active-line);
+  border-radius: var(--cp-radius);
+  background: var(--cp-active-bg);
+}
+
+.nav-membership-copy {
+  min-width: 0;
+}
+
+.nav-membership-title {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  color: var(--cp-text);
+  font-size: 13px;
+  font-weight: 760;
+}
+
+.nav-membership-title .anticon {
+  color: var(--cp-active-text);
+}
+
+.nav-membership-description {
+  margin-top: 4px;
+  color: var(--cp-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.nav-membership .ant-btn {
+  align-self: flex-start;
+  min-height: 28px;
+  font-weight: 700;
+}

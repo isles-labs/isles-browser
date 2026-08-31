@@ -1,0 +1,89 @@
+# This workflow is the entry point for all CI processes.
+# It is from here that all other workflows are launched.
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - '*'
+    branches:
+      - main
+      - 'renovate/**'
+    paths-ignore:
+      - '.github/**'
+      - '!.github/workflows/ci.yml'
+      - '!.github/workflows/release.yml'
+      - '!.github/workflows/lint.yml'
+      - '!.github/workflows/tests.yml'
+      - '!.github/workflows/typechecking.yml'
+      - '**.md'
+      - .editorconfig
+      - .gitignore
+      - '.idea/**'
+      - '.vscode/**'
+  pull_request:
+    paths-ignore:
+      - '.github/**'
+      - '!.github/workflows/ci.yml'
+      - '!.github/workflows/release.yml'
+      - '!.github/workflows/lint.yml'
+      - '!.github/workflows/tests.yml'
+      - '!.github/workflows/typechecking.yml'
+      - '**.md'
+      - .editorconfig
+      - .gitignore
+      - '.idea/**'
+      - '.vscode/**'
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    uses: ./.github/workflows/lint.yml
+
+  typechecking:
+    uses: ./.github/workflows/typechecking.yml
+
+  tests:
+    uses: ./.github/workflows/tests.yml
+
+  build_smoke:
+    name: Build and packaging smoke
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (github.ref_type == 'tag' || github.ref_name == 'main'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: timeout 10m npm ci --ignore-scripts
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 1
+          PUPPETEER_SKIP_DOWNLOAD: 'true'
+      - run: npm run ci:prepare-electron-vendors
+      - run: npm run build:native-addon
+      - run: node -e "const fs=require('fs'); const p='packages/main/src/native-addon/build/Release/window-addon.node'; if (!fs.existsSync(p)) { console.error('Missing '+p); process.exit(1); } console.log('Verified '+p);"
+      - run: npm run package:smoke
+
+  draft_release:
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (github.ref_type == 'tag' || github.ref_name == 'main'))
+    needs: [lint, typechecking, tests, build_smoke]
+    permissions:
+      contents: write
+    uses: ./.github/workflows/release.yml
+    with:
+      dry-run: ${{ github.event_name != 'push' || (github.ref_type != 'tag' && github.ref_name != 'main') }}
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+      P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
+      KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+      APPLE_IDENTITY: ${{ secrets.APPLE_IDENTITY }}
+      VITE_APP_API: ${{ secrets.VITE_APP_API }}
+      VITE_START_PAGE_URL: ${{ secrets.VITE_START_PAGE_URL }}

@@ -1,0 +1,115 @@
+.team-members-page {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 34px 40px 48px;
+}
+
+.team-members-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 26px;
+}
+
+.team-members-eyebrow {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--cp-muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.team-members-heading h2.ant-typography {
+  margin: 0 0 8px;
+  color: var(--cp-text);
+}
+
+.team-members-notice {
+  margin-bottom: 18px;
+}
+
+.team-members-card {
+  overflow: hidden;
+  border: 1px solid var(--cp-border);
+  border-radius: var(--cp-radius);
+  background: var(--cp-panel-bg);
+  box-shadow: var(--cp-shadow);
+}
+
+.team-members-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--cp-row-border);
+}
+
+.team-members-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--cp-text);
+  font-weight: 700;
+}
+
+.team-members-loading {
+  display: grid;
+  min-height: 220px;
+  place-items: center;
+}
+
+.team-member-list {
+  padding: 0 22px;
+}
+
+.team-member-row {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 76px;
+  border-bottom: 1px solid var(--cp-row-border);
+}
+
+.team-member-row:last-child {
+  border-bottom: 0;
+}
+
+.team-member-avatar {
+  flex: 0 0 auto;
+  color: var(--cp-active-text);
+  background: var(--cp-active-bg);
+  font-weight: 700;
+}
+
+.team-member-identity {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.team-member-name {
+  overflow: hidden;
+  color: var(--cp-text);
+  font-weight: 650;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.team-member-actions {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 680px) {
+  .team-members-page { padding: 24px 20px 36px; }
+  .team-members-heading { flex-direction: column; }
+  .team-member-list { padding: 0 14px; }
+  .team-members-card-header { padding-inline: 14px; }
+  .team-member-row { align-items: flex-start; padding: 14px 0; }
+  .team-member-actions { flex-direction: column; align-items: flex-end; }
+}
