@@ -121,9 +121,9 @@ export const modifyPageInfo = async (windowId: number, page: Page, ipInfo: IP) =
   page.on('framenavigated', async _msg => {
     try {
       const title = await page.title();
-      if (!title.includes('By ISLES Power')) {
+      if (!title.includes('By ISLES Browser')) {
         await page.evaluate(title => {
-          document.title = title + ' By ISLES Power';
+          document.title = title + ' By ISLES Browser';
         }, title);
       }
 

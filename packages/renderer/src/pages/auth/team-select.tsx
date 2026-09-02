@@ -207,7 +207,7 @@ export default function TeamSelect() {
       createForm.resetFields();
       await loadTeams();
       messageApi.success(
-        '团队已创建。请在 ISLES Power 为该团队开通会员权益后，刷新团队列表并进入团队。',
+        '团队已创建。请在 ISLES Browser 为该团队开通会员权益后，刷新团队列表并进入团队。',
       );
     } catch (error) {
       messageApi.error((error as Error).message);

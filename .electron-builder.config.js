@@ -21,8 +21,8 @@ console.log('ELECTRON_ARCH', process.env.ELECTRON_ARCH);
 module.exports = async function () {
   const {getVersion} = await import('./version/getVersion.mjs');
   const config = {
-    productName: 'ISLES Power',
-    appId: 'com.isles-power.app',
+    productName: 'ISLES Browser',
+    appId: 'com.isles-browser.app',
     directories: {
       output: 'dist',
       buildResources: 'buildResources',
@@ -78,7 +78,7 @@ module.exports = async function () {
       allowToChangeInstallationDirectory: true,
       createDesktopShortcut: true,
       createStartMenuShortcut: true,
-      shortcutName: 'ISLES Power',
+      shortcutName: 'ISLES Browser',
       installerIcon: 'buildResources/icon.ico',
       uninstallerIcon: 'buildResources/icon.ico',
       installerHeaderIcon: 'buildResources/icon.ico',

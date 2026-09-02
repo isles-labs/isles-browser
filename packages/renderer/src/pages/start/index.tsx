@@ -110,7 +110,7 @@ export default function Start() {
     // 当 IP 信息更新时，更新标题
     const windowId = search.get('windowId');
     if (windowId) {
-      document.title = `(#${windowId}) ${windowInfo.name || '未命名'} ${moreInfo.ip ? `| IP:${moreInfo.ip}` : ''} ｜ ISLES Power`;
+      document.title = `(#${windowId}) ${windowInfo.name || '未命名'} ${moreInfo.ip ? `| IP:${moreInfo.ip}` : ''} ｜ ISLES Browser`;
     }
   }, [moreInfo.ip, windowInfo.name]);
 

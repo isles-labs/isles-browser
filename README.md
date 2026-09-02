@@ -1,30 +1,126 @@
-# ISLES Power
+# ISLES Browser
 
-ISLES Power is an open-source desktop manager for independent Chromium profiles, proxies, extensions, and local browser automation connections.
+ISLES Browser 是一款面向个人开发者、自动化工程师和 Web3 研究者的开源桌面浏览器工作台。它基于 Electron 构建，用于统一管理多个彼此隔离的 Chromium 配置文件、浏览器窗口、代理和扩展，并提供本机自动化连接能力。
 
-This repository contains the open-source edition. It launches a locally installed Chrome or Chromium executable without shipping a custom browser runtime.
+开源版调用电脑上已经安装的 Chrome 或 Chromium，不内置定制浏览器运行时，也不包含未公开的浏览器内核修改。项目的目标是提供清晰、可审计、可自行部署的桌面基础能力，方便用户在本地管理浏览器环境和自动化工具链。
 
-## Features
+## 项目定位
 
-- Independent Chromium profile directories
-- HTTP and SOCKS5 proxy assignment
-- Group, tag, and extension management
-- Local API for Puppeteer, Playwright, and Selenium connections
-- Optional cloud profile synchronization
+ISLES 是提供产品与社群服务的品牌，ISLES Browser 是其中的开源桌面产品。本项目相关内容分为两部分：
 
-## Development
+1. **开源客户端**：本仓库提供的 Electron 客户端、配置文件管理、代理管理、窗口管理、本地 API 和相关开发工具。
+2. **ISLES 社群服务**：面向社群成员提供的云端产品、脚本、信息服务和活动，不属于本仓库的开源代码范围，具体以服务页面和社群公告为准。
 
-Requires Node.js 18 and npm.
+## 核心能力
+
+### 配置文件与窗口
+
+- 为不同账号、项目或测试环境创建独立的 Chromium 配置文件目录
+- 独立启动、关闭和管理浏览器窗口
+- 支持配置文件分组、标签和备注，便于批量查找与维护
+- 支持窗口排列以及多窗口操作同步，适合重复导航和受控测试
+
+### 网络与扩展
+
+- 支持 HTTP、HTTPS 和 SOCKS5 代理配置
+- 对代理进行统一保存、切换和连通性检查
+- 为不同配置文件分配扩展并维护扩展清单
+- 通过本地数据和进程隔离降低不同工作环境之间的相互影响
+
+### 自动化与同步
+
+- 提供仅监听回环地址的本地 API
+- 可连接 Puppeteer、Playwright 或 Selenium 等自动化工具
+- 支持通过 CDP 连接已打开的浏览器页面
+- 对支持的工作区提供可选云端配置文件同步
+
+## 社群服务
+
+以下服务由 ISLES 社群独立提供，不等同于本仓库中的开源功能。服务可能需要单独申请、购买或遵守额外的使用规则：
+
+| 服务 | 说明 |
+| --- | --- |
+| 指纹浏览器云端版本使用 | 提供云端浏览器环境和相关使用支持，适合需要远程运行环境的用户。 |
+| Web3 项目交互脚本 | 提供面向 Web3 项目研究和交互流程的脚本工具，使用前请确认项目规则和所在地法律要求。 |
+| 安全的批量导入钱包脚本 | 提供批量导入和初始化钱包的辅助工具，强调本地处理、权限隔离和敏感数据保护。任何助记词、私钥和密钥文件均由用户自行保管。 |
+| AI 信息流 | 聚合和整理 AI、自动化及开发者生态信息，帮助成员快速跟踪行业动态。 |
+| Web3 项目分析研报 | 提供项目背景、产品、代币模型、风险因素和公开资料整理，不构成投资建议。 |
+| 港股打新策略和研报 | 分享港股新股申购相关的公开信息、策略框架、数据整理和风险分析，不构成任何投资或申购建议。 |
+| 定期社群分享会 | 定期进行工具演示、项目拆解、经验分享和问题答疑，具体时间以社群通知为准。 |
+
+所有脚本、研报和策略内容仅用于学习、研究和风险评估。港股打新及其他投资相关内容不构成证券、投资、税务或法律建议，也不保证任何收益。请遵守当地法律、平台服务条款和项目规则，不要将工具用于欺诈、绕过安全控制、操纵市场或其他违法活动。
+
+## 微信社群
+
+扫描下方二维码添加微信，获取社群服务介绍、版本动态和活动通知：
+
+![ISLES 微信社群二维码](./packages/renderer/assets/wechat-membership-qr.png)
+
+如二维码失效，请以仓库最新说明或官方社群公告中的联系方式为准。请勿在公开 Issue、日志或截图中发送私钥、助记词、Cookie、API Token 或其他敏感信息。
+
+## 环境要求
+
+- Node.js 18 或更高版本
+- npm 9 或更高版本
+- 本机已安装的 Chrome 或 Chromium
+- macOS、Windows 或 Linux 开发环境（具体打包能力以 `package.json` 中的脚本为准）
+
+## 快速开始
+
+安装依赖后，在 macOS 上启动开发环境：
 
 ```bash
 npm install
 npm run watch:mac
 ```
 
-Use `npm run build` for a production build, `npm run typecheck` for TypeScript validation, and `npm run package` to package the app locally.
+首次使用时，请在应用设置页面填写 Chrome 或 Chromium 的可执行文件路径，然后再创建和打开配置文件。
 
-Set the Chrome or Chromium executable path in Settings before opening a profile.
+常用检查命令：
 
-## License
+```bash
+npm run typecheck
+npm test
+npm run build
+```
 
-This project is licensed under the AGPL-3.0 license. See [LICENSE](./LICENSE).
+使用 `npm run package` 可以创建本地应用安装包。其他平台的打包命令请查看 `package.json`。涉及原生依赖的环境，可能还需要安装对应平台的编译工具链。
+
+## 本地 API
+
+本地 API 默认监听 `127.0.0.1:49156`，并要求使用应用 API 页面显示的 Token。API 只接受本机回环请求，适合与本地 Puppeteer、Playwright 或其他自动化程序配合使用。
+
+请将 Token 放在本地环境变量中，不要硬编码到脚本或提交到 Git：
+
+```bash
+export ISLES_BROWSER_API_TOKEN="your-local-token"
+```
+
+更多 SDK 使用说明请阅读[本地自动化 SDK](./packages/sdk/README.md)。
+
+## 安全与隐私
+
+- 配置文件目录、Cookie、代理凭据、钱包文件、API Token 和浏览器调试地址均属于敏感数据。
+- 开发和测试请使用可丢弃的配置文件，避免连接生产账号或执行不可逆操作。
+- 提交 Issue 或 Pull Request 前，请对日志、截图和配置文件进行脱敏。
+- 云端同步功能只同步项目明确支持的数据；使用前请阅读对应的隐私和数据保留说明。
+- 项目不保证第三方网站、代理服务、扩展或 Web3 项目的安全性，用户应自行完成风险评估。
+
+## 文档
+
+- [多窗口同步](./MULTI_WINDOW_SYNC_GUIDE.md)
+- [参与贡献](./contributing.md)
+- [开发说明](./cursor-directive.md)
+- [本地自动化 SDK](./packages/sdk/README.md)
+
+## 使用限制（重要）
+
+本项目仅限个人学习、研究和非商业使用，未经授权不得用于商业用途。
+
+## 参与贡献
+
+欢迎提交 Issue、改进建议和 Pull Request。请先阅读[贡献指南](./contributing.md)，并确保提交内容不包含任何私有指纹实现、客户数据、账号凭据或其他不应公开的信息。
+
+## 开源协议
+
+本项目使用 [AGPL-3.0](./LICENSE) 开源协议。

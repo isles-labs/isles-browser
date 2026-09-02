@@ -1,99 +1,32 @@
-## Core Technologies
+# ISLES Browser 开发说明
 
-- Electron (v27.0.0)
-- React (v18.2.0)
-- TypeScript (v5.1.3)
-- Node.js
+## 项目结构
 
-## Frontend Stack
+ISLES Browser 是一个 Electron 应用，主要由三个包组成：
 
-1. React Ecosystem
-   - React Router DOM (v6.16.0)
-   - Redux Toolkit
-   - React Redux
-   - Ant Design (v5.14.0)
+- `packages/main`：应用生命周期、浏览器进程管理、持久化和本地 API
+- `packages/preload`：主进程和渲染进程之间的类型化桥接层
+- `packages/renderer`：React 用户界面
 
-2. Styling & UI
-   - TailwindCSS
-   - WindiCSS
-   - Iconify
+请保持进程边界明确。渲染进程应通过预加载桥接层调用能力，不应直接导入 Node.js 或 Electron 主进程 API。
 
-3. Internationalization
-   - i18next
-   - react-i18next
-   - i18next-browser-languagedetector
+## 开发约定
 
-## Backend & Electron Features
+- 使用 TypeScript，并遵循相邻模块的实现模式。
+- 保持主进程 IPC 处理函数简洁，并验证其输入。
+- 配置文件路径、API Token、Cookie、代理凭据、浏览器调试地址和云端访问数据均属于敏感信息。
+- 不要记录或提交私有浏览器数据。
+- 修改设置、操作流程或公开本地 API 行为时，请同步更新面向用户的文档。
 
-1. Database
-   - SQLite3
-   - Knex.js (Query Builder)
+## 验证
 
-2. System Integration
-   - Native Addons (node-addon-api)
-   - Process Management (ps-list)
+根据改动范围选择检查命令：
 
-3. Network & Proxy
-   - Express.js
-   - Axios
-   - Proxy Chain
-   - SOCKS Proxy Support
-   - HTTP/HTTPS Proxy Agents
-   - Port Scanner
+```bash
+npm run typecheck:main
+npm run typecheck:preload
+npm run typecheck:renderer
+npm test
+```
 
-4. Browser Automation
-   - Puppeteer
-   - User Agents
-
-5. Geolocation & IP
-   - GeoIP-lite
-   - IP2Location
-   - geo-tz
-
-## Build & Development
-
-1. Build Tools
-   - Vite
-   - Electron Builder
-   - Node-gyp
-
-2. Testing
-   - Vitest
-   - Playwright
-   - Happy DOM
-
-3. Code Quality
-   - ESLint
-   - TypeScript Type Checking
-   - Prettier
-
-## Common Development Queries
-
-1. Electron IPC Communication
-2. Native Addon Development
-3. Proxy Configuration
-4. Browser Profile Management
-5. Database Operations
-6. Window Management
-7. Process Control
-8. Network Security
-9. Automated Testing
-10. Build Configuration
-
-## Security Considerations
-
-1. Proxy Chain Security
-2. Native Addon Safety
-3. IPC Communication Security
-4. Database Access Control
-5. Browser Profile Isolation
-
-## Performance Optimization
-
-1. Memory Management
-2. Process Communication
-3. Database Query Optimization
-4. Resource Usage Monitoring
-5. Build Size Optimization
-
-Think in English, answer in Chinese
+发布相关改动前请运行 `npm run build`。涉及真实浏览器窗口、代理或本地 API 连接的改动，请使用可丢弃的测试配置文件，并避免产生外部副作用。

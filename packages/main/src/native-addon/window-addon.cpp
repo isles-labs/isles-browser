@@ -489,7 +489,7 @@ struct WindowDebugInfo {
             if (!isEnabled) {
                 NSAlert* alert = [[NSAlert alloc] init];
                 [alert setMessageText:@"Accessibility Permission Required"];
-                [alert setInformativeText:@"ISLES Power needs accessibility permission to manage windows. Please enable it in System Preferences."];
+                [alert setInformativeText:@"ISLES Browser needs accessibility permission to manage windows. Please enable it in System Preferences."];
                 [alert addButtonWithTitle:@"Open System Preferences"];
                 [alert addButtonWithTitle:@"Cancel"];
                 

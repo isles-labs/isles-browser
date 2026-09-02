@@ -1,34 +1,47 @@
-# Contributing
+# 参与贡献 ISLES Browser
 
-First and foremost, thank you! We appreciate that you want to contribute to vite-electron-builder, your time is
-valuable, and your contributions mean a lot to us.
+感谢你参与 ISLES Browser。请保持改动聚焦，说明用户可见的效果，并避免将不相关的重构与功能或修复混在同一个 Pull Request 中。
 
-## Issues
+## 提交 Issue 前
 
-Do not create issues about bumping dependencies unless a bug has been identified, and you can demonstrate that it
-effects this library.
+请先搜索已有 Issue。一份有帮助的问题报告应包含：
 
-**Help us to help you**
+- ISLES Browser 版本、操作系统和 CPU 架构
+- 清晰的复现步骤
+- 预期行为和实际行为
+- 经过脱敏处理的日志或截图（如有必要）
 
-Remember that we’re here to help, but not to make guesses about what you need help with:
+请勿提交 API Token、浏览器调试地址、配置文件目录、Cookie、密码、助记词或其他私密数据。
 
-- Whatever bug or issue you're experiencing, assume that it will not be as obvious to the maintainers as it is to you.
-- Spell it out completely. Keep in mind that maintainers need to think about _all potential use cases_ of a library.
-  It's important that you explain how you're using a library so that maintainers can make that connection and solve the
-  issue.
+## 本地环境
 
-_It can't be understated how frustrating and draining it can be to maintainers to have to ask clarifying questions on
-the most basic things, before it's even possible to start debugging. Please try to make the best use of everyone's time
-involved, including yourself, by providing this information up front._
+ISLES Browser 需要 Node.js 18 或更高版本、npm 9 或更高版本，以及本机安装的 Chrome 或 Chromium。
 
-## Repo Setup
+```bash
+npm install
+npm run watch:mac
+```
 
-The package manager used to install and link dependencies must be npm v7 or later.
+提交 Pull Request 前，请运行与改动相关的检查：
 
-1. Clone repo
-1. `npm run watch` start electron app in watch mode.
-1. `npm run compile` build app but for local debugging only.
-1. `npm run lint` lint your code.
-1. `npm run typecheck` Run typescript check.
-1. `npm run test` Run app test.
-1. `npm run format` Reformat all codebase to project code style.
+```bash
+npm run typecheck
+npm test
+npm run build
+```
+
+使用 `npm run lint` 运行代码检查；需要格式化时使用 `npm run format`。
+
+## Pull Request 要求
+
+- 从当前默认分支创建分支。
+- 标题应简洁描述改动结果，而不是实现细节。
+- 改变行为时应提供相应测试。
+- 改变公开设置、操作流程或本地 API 时应更新文档。
+- 保持与 `package.json` 中声明的 Node.js 和 Electron 版本兼容。
+
+涉及配置文件、代理、本地 API 鉴权、原生输入或云端同步的修改需要格外谨慎。请使用可丢弃的本地测试数据验证，不要提交任何私有配置文件数据。
+
+## 代码风格
+
+项目使用 TypeScript、Electron、React、ESLint 和 Prettier。请遵循附近代码的既有模式，在模块边界保留明确的类型，并且不要在没有明确必要性的情况下新增依赖。

@@ -69,11 +69,11 @@ export default function Navigation() {
         <div className="nav-brand-mark">
           <img
             src={logo}
-            alt="ISLES Power"
+            alt="ISLES Browser"
           />
         </div>
         <div>
-          <div className="nav-brand-title">ISLES Power</div>
+          <div className="nav-brand-title">ISLES Browser</div>
           <div className="nav-brand-subtitle">Browser Ops</div>
         </div>
       </div>

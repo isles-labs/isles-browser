@@ -45,7 +45,7 @@ const env = {
 };
 
 
-console.log(`准备发布 ISLES Power v${packageJson.version} (${platform})`);
+console.log(`准备发布 ISLES Browser v${packageJson.version} (${platform})`);
 run('npm', ['run', 'build'], env);
 run(
   'npx',

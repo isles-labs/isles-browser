@@ -199,7 +199,7 @@ export default function Header({title}: HeaderProps) {
             className="page-title"
             level={2}
           >
-            {title || 'ISLES Power'}
+            {title || 'ISLES Browser'}
           </Title>
           <div className="page-kicker">Workspace control center</div>
         </div>

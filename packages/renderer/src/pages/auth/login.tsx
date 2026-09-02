@@ -68,7 +68,7 @@ export default function Login() {
       {contextHolder}
       <div className="auth-brand">
         <div>
-          <h1 className="auth-brand-title">ISLES Power</h1>
+          <h1 className="auth-brand-title">ISLES Browser</h1>
           <p className="auth-brand-copy">
             登录用于账号隔离；本地窗口、代理和脚本工作流无需团队即可使用。
           </p>
